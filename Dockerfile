@@ -1,12 +1,8 @@
-FROM alpine/git as clone
+FROM moussavdb/build-nodejs-arm64 as build
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
-WORKDIR /app
 RUN git clone --single-branch -b develop https://github.com/yildiz-online/play50hz-web.git
-
-FROM moussavdb/build-nodejs as build
-MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
+COPY /play50hz-web /app
 WORKDIR /app
-COPY --from=clone /app/play50hz-web /app
 RUN yarn
 RUN ng build --prod
 
