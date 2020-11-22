@@ -2,6 +2,7 @@ FROM moussavdb/build-nodejs-arm64 as build
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 RUN git clone --single-branch -b develop https://github.com/yildiz-online/play50hz-web.git
 RUN cd /play50hz-web
+RUN ls -l
 RUN yarn
 RUN ng build --prod
 
