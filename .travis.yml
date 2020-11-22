@@ -3,6 +3,8 @@ arch:
 os: linux
 dist: focal
 
+language: generic
+
 services:
   - docker
 
