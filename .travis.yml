@@ -11,7 +11,7 @@ services:
 before_install:
   - docker build -t moussavdb/application-play50hz-website-$TRAVIS_CPU_ARCH:latest -t moussavdb/application-play50hz-website-$TRAVIS_CPU_ARCH:build_$TRAVIS_BUILD_NUMBER .
 script:
-  - docker images moussavdb/application-play50hz-website
+  - docker images moussavdb/application-play50hz-website-$TRAVIS_CPU_ARCH
   
 after_success:
   - docker login -u="moussavdb" -p="$DOCKER_PASSWORD";
