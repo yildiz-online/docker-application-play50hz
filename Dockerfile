@@ -1,4 +1,4 @@
-FROM moussavdb/build-nodejs-arm64 as build
+FROM moussavdb/build-nodejs as build
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 RUN git clone --single-branch -b develop https://github.com/yildiz-online/play50hz-web.git
 WORKDIR /play50hz-web
