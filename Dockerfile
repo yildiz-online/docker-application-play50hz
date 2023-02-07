@@ -8,7 +8,7 @@ FROM node:18-alpine as build
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 WORKDIR /app
 COPY --from=clone /app/play50hz-web /app
-RUN yarn
+RUN yarn –-network-timeout 100000
 RUN ng build --configuration production
 
 FROM nginx:alpine
