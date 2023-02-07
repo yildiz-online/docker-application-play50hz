@@ -2,7 +2,7 @@ FROM alpine/git as clone
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 ARG GH_TOKEN
 WORKDIR /app
-RUN git clone --single-branch -b nolock https://github.com/yildiz-online/play50hz-web.git
+RUN git clone --single-branch -b develop https://github.com/yildiz-online/play50hz-web.git
 
 FROM node:18-alpine as build
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
