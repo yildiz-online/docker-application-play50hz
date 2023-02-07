@@ -9,7 +9,6 @@ services:
   - docker
 
 before_install:
-  - chown -R 655 /usr/local/lib/node_modules/
   - docker build -t moussavdb/application-retro-website:latest .
 script:
   - docker images moussavdb/application-retro-website
