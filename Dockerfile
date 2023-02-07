@@ -2,7 +2,7 @@ FROM moussavdb/build-nodejs:lts as build
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 RUN git clone --single-branch -b develop https://github.com/yildiz-online/play50hz-web.git
 WORKDIR /play50hz-web
-RUN yarn
+RUN yarn --network-timeout 100000 install
 RUN ng build --configuration production
 
 FROM nginx:alpine
