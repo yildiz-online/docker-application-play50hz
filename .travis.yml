@@ -1,7 +1,7 @@
 arch:
-  - amd64
+  - arm64
 os: linux
-dist: jammy
+dist: focal
 git:
   depth: false
 
@@ -9,14 +9,9 @@ language: bash
 
 services:
   - docker
-
-before_install:
-  - mkdir -vp ~/.docker/cli-plugins/
-  - curl --silent -L "https://github.com/docker/buildx/releases/download/v0.10.2/buildx-v0.10.2.linux-amd64" > ~/.docker/cli-plugins/docker-buildx
-  - chmod a+x ~/.docker/cli-plugins/docker-buildx
   
 script:
   - docker login -u="moussavdb" -p="$DOCKER_PASSWORD";
-  - docker buildx create --use
-  - docker buildx build --push --platform linux/arm64/v8 --tag moussavdb/application-retro-website:latest .
+  - docker build --t moussavdb/application-retro-website:latest .
+  - docker push moussavdb/application-retro-website:latest .
 
