@@ -12,6 +12,6 @@ services:
   
 script:
   - docker login -u="moussavdb" -p="$DOCKER_PASSWORD";
-  - docker build --t moussavdb/application-retro-website:latest .
+  - docker build -t moussavdb/application-retro-website:latest .
   - docker push moussavdb/application-retro-website:latest .
 
