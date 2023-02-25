@@ -4,7 +4,7 @@ ARG GH_TOKEN
 WORKDIR /app
 RUN git clone --single-branch -b develop https://github.com/yildiz-online/play50hz-web.git
 
-FROM node:18-alpine as build
+FROM moussavdb/build-nodejs:lts as build
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 WORKDIR /app
 COPY --from=clone /app/play50hz-web /app
