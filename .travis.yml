@@ -4,7 +4,7 @@ os: linux
 dist: jammy
 group: dev
 
-language: generic
+language: shell
 
 services:
   - docker
