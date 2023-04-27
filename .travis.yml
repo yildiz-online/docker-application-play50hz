@@ -1,9 +1,11 @@
 arch:
   - arm64
 os: linux
-dist: focal
 
-language: generic
+dist: jammy
+group: dev
+
+language: shell
 
 services:
   - docker
@@ -15,5 +17,5 @@ script:
   
 after_success:
   - docker login -u="moussavdb" -p="$DOCKER_PASSWORD";
-    docker push moussavdb/application-retro-website:latest;
+  - docker push moussavdb/application-retro-website:latest;
 
