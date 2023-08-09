@@ -3,7 +3,6 @@ arch:
 os: linux
 
 dist: jammy
-group: dev
 
 language: shell
 
