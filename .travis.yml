@@ -16,4 +16,4 @@ before_install:
 script:
   - docker login -u="moussavdb" --password-stdin <<< "$DOCKER_PASSWORD";
   - docker buildx create --use
-  - docker buildx build --push --platform linux/arm64/v8 --tag moussavdb/application-retro-website:latest .
+  - docker buildx build --push --ulimit nofile=1024000:1024000 --platform linux/arm64/v8 --tag moussavdb/application-retro-website:latest .
