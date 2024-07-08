@@ -1,20 +1,19 @@
 arch:
-  - arm64
+  - amd64
 os: linux
-
 dist: jammy
 
-language: shell
+language: bash
 
 services:
   - docker
 
 before_install:
-  - docker build -t moussavdb/application-retro-website:latest .
-script:
-  - docker images moussavdb/application-retro-website
+  - mkdir -vp ~/.docker/cli-plugins/
+  - curl --silent -L "https://github.com/docker/buildx/releases/download/v0.15.1/buildx-v0.15.1.linux-amd64" > ~/.docker/cli-plugins/docker-buildx
+  - chmod a+x ~/.docker/cli-plugins/docker-buildx
   
-after_success:
-  - docker login docker.io -u="moussavdb" --password-stdin="$DOCKER_PASSWORD";
-  - docker push moussavdb/application-retro-website:latest;
-
+script:
+  - docker login -u="moussavdb" --password-stdin <<< "$DOCKER_PASSWORD";
+  - docker buildx create --use
+  - docker buildx build --push --platform linux/arm64/v8 --tag moussavdb/application-retro-website:latest .
