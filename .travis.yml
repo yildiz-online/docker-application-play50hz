@@ -15,6 +15,6 @@ script:
   - docker images moussavdb/application-retro-website
   
 after_success:
-  - docker login -u="moussavdb" --password-stdin="$DOCKER_PASSWORD";
+  - docker login docker.io -u="moussavdb" --password-stdin="$DOCKER_PASSWORD";
   - docker push moussavdb/application-retro-website:latest;
 
