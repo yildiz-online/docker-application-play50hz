@@ -8,5 +8,6 @@ RUN ng build --configuration production
 FROM nginx:alpine
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 COPY --from=build /play50hz-web/dist /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 RUN apk add --update curl \
     && rm -rf /var/cache/apk/*
