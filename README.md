@@ -1,2 +1,2 @@
-# docker-application-play50hz
-Website for the play50hz application
+# docker-application-retro-website
+Website for the retro application
