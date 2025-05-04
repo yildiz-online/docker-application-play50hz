@@ -3,7 +3,7 @@ MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 RUN git clone --single-branch -b develop https://github.com/yildiz-online/play50hz-web.git
 WORKDIR /play50hz-web
 RUN pnpm install
-RUN ng build --configuration production
+RUN ng build --localize --base-href=/ --configuration production 
 
 FROM nginx:alpine
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
