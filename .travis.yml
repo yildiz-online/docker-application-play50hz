@@ -10,10 +10,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t moussavdb/application-retro-website:250504-2 .
+  - docker build -t moussavdb/application-retro-website:250504-3 .
 script:
   - docker images moussavdb/application-retro-website
   
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "moussavdb" --password-stdin
-  - docker push moussavdb/application-retro-website:250504-2;
+  - docker push moussavdb/application-retro-website:250504-3;
